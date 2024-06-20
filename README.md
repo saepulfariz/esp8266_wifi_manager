@@ -19,3 +19,5 @@
 # Reference
 
 - https://github.com/tzapu/WiFiManager
+- https://github.com/tfkiot/WiFi_ManagerEspFlashPinReset
+- https://youtu.be/ynDJ_n7XyZQ?si=WPbJm2wAAcW7EM8g

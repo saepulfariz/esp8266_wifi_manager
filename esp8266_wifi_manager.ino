@@ -1,5 +1,6 @@
 #include <WiFiManager.h> // https://github.com/tzapu/WiFiManager
 
+const int flashButtonPin = 0;
 
 void setup() {
     // WiFi.mode(WIFI_STA); // explicitly set mode, esp defaults to STA+AP
@@ -7,6 +8,8 @@ void setup() {
 
     // put your setup code here, to run once:
     Serial.begin(115200);
+
+    pinMode(flashButtonPin, INPUT);
     
     //WiFiManager, Local intialization. Once its business is done, there is no need to keep it around
     WiFiManager wm;
@@ -38,4 +41,11 @@ void setup() {
 
 void loop() {
     // put your main code here, to run repeatedly:   
+   if (digitalRead(flashButtonPin) == LOW) {
+    WiFiManager wm;
+    wm.resetSettings();
+    ESP.reset();
+    Serial.println("WiFi settings reset");
+    delay(1000); 
+  }
 }
